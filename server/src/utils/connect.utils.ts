@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
-import config from "config";
 import logger from "./logger.utils";
+import { DB_URI } from "../../config/env.config";
 
 async function connectDB() {
-  const dbUri = config.get<string>("dbUri");
+  const dbUri = DB_URI as string;
+
   try {
     const conn = await mongoose.connect(dbUri);
     logger.info("[mongoose] Connected to DB");

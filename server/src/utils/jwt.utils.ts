@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken";
-import config from "config";
+import { PRIVATE_KEY, PUBLIC_KEY } from "../../config/env.config";
 
-const privateKey = config.get<string>("privateKey");
-const publicKey = config.get<string>("publicKey");
+const privateKey = PRIVATE_KEY as string;
+const publicKey = PUBLIC_KEY as string;
 
 export interface IJwtPayload {
   valid: boolean;

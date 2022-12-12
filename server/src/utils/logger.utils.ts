@@ -1,14 +1,6 @@
 import pino from "pino";
 import dayjsUTC from "./dayjsUTC.utils";
 
-// const logger = pino({
-//   prettyPrint: true,
-//   base: {
-//     pid: false,
-//   },
-//
-// });
-
 const logger = pino({
   prettifier: true,
 

@@ -5,13 +5,13 @@
   "license": "MIT",
   "scripts": {
     "start": "node build/src/app.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "dev": "ts-node-dev --respawn --transpile-only server/src/app.ts",
     "build": "tsc",
     "test": "jest --watchAll --detectOpenHandles"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "config": "^3.3.7",
+    "config": "^3.3.8",
     "cors": "^2.8.5",
     "dayjs": "^1.11.4",
     "dotenv": "^16.0.1",
@@ -24,6 +24,7 @@
     "nanoid": "^3.0.0",
     "pino": "^8.3.0",
     "pino-pretty": "^8.1.0",
+    "yargs": "^17.6.2",
     "zod": "^3.17.9"
   },
   "devDependencies": {
