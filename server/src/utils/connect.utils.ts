@@ -1,10 +1,9 @@
 import mongoose from "mongoose";
 import logger from "./logger.utils";
-import { DB_URI } from "../../config/env.config";
+import { DB_URI } from "@config/env.config";
 
 async function connectDB() {
   const dbUri = DB_URI as string;
-
   try {
     const conn = await mongoose.connect(dbUri);
     logger.info("[mongoose] Connected to DB");

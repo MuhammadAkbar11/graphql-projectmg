@@ -1,8 +1,10 @@
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
-import deserializeUser from "../middleware/deserializeUser";
+import graphqlSchema from "@schema/graphql/schema";
+import deserializeUser from "@middleware/deserializeUser";
 import routes from "../routes";
-import graphqlSchema from "../schema/graphql/graphql.schema";
+import appRoutes from "@appRoute";
+import { MODE } from "@config/env.config";
 
 const rootValue = {
   hello: () => "Hello, world!",
@@ -20,12 +22,12 @@ function createServer() {
     graphqlHTTP({
       schema: graphqlSchema,
       rootValue: rootValue,
-      graphiql: true,
+      graphiql: MODE === "development",
     })
   );
 
-  routes(app);
-
+  // routes(app);
+  appRoutes(app);
   return app;
 }
 

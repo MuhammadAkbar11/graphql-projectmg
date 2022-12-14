@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { PRIVATE_KEY, PUBLIC_KEY } from "../../config/env.config";
+import { PRIVATE_KEY, PUBLIC_KEY } from "../config/env.config";
 
 const privateKey = PRIVATE_KEY as string;
 const publicKey = PUBLIC_KEY as string;
