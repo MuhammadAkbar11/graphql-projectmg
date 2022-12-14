@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import path from "path";
-import { ROOT_FOLDER } from "../src/utils/constants.utils";
+import { ROOT_FOLDER } from "../utils/constants.utils";
 
 const mode = process.env.TS_NODE_DEV ? "development" : "production";
 const envPath = {
@@ -9,12 +9,11 @@ const envPath = {
   testing: path.join(ROOT_FOLDER, ".env.test"),
 };
 
-console.log(envPath[mode]);
-
 export const envConfig = dotenv.config({
   path: envPath[mode],
 });
 
+export const MODE = mode;
 export const SALTWORKFACTOR = 10;
 export const ACCESSTOKENTTL = "15m";
 export const REFRESHTOKENTTL = "7d";
