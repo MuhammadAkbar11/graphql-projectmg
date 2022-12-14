@@ -2,7 +2,6 @@ import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import graphqlSchema from "@schema/graphql/schema";
 import deserializeUser from "@middleware/deserializeUser";
-import routes from "../routes";
 import appRoutes from "@appRoute";
 import { MODE } from "@config/env.config";
 

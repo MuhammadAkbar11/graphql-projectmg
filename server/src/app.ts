@@ -1,8 +1,8 @@
-import * as envCfg from "./config/env.config";
+import connectDB from "@config/db.config";
+import * as envCfg from "@config/env.config";
 envCfg.envConfig;
-import connectDB from "./utils/connect.utils";
-import log from "./utils/logger.utils";
-import createServer from "./utils/server.utils";
+import log from "@utils/logger.utils";
+import createServer from "@utils/server.utils";
 
 const app = createServer();
 
