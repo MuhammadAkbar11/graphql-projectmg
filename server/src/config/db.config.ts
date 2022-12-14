@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import logger from "./logger.utils";
 import { DB_URI } from "@config/env.config";
+import logger from "@utils/logger.utils";
 
 async function connectDB() {
   const dbUri = DB_URI as string;
