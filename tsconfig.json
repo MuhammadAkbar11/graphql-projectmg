@@ -24,7 +24,10 @@
       "@controller/*": [
         "src/controller/*"
       ],
-      "@services/*": [
+      "@model/*": [
+        "src/models/*"
+      ],
+      "@service/*": [
         "src/services/*"
       ],
       "@utils/*": [

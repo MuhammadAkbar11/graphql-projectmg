@@ -1,5 +1,11 @@
-import clients from "@data/sampleClient";
-import projects from "@data/sampleProject";
+import {
+  findClientService,
+  findOneClientService,
+} from "@service/client.service";
+import {
+  findOneProjectService,
+  findProjectService,
+} from "@service/project.service";
 
 import {
   GraphQLID,
@@ -28,8 +34,9 @@ const ProjectType = new GraphQLObjectType({
     status: { type: GraphQLString },
     client: {
       type: ClientType,
-      resolve(parent, args) {
-        return clients.find(client => client.id === parent.clientId);
+      async resolve(parent, args) {
+        // return clients.find(client => client.id === parent.clientId);
+        return await findOneClientService({ _id: parent.clientId });
       },
     },
   }),
@@ -40,28 +47,29 @@ const RootQuery = new GraphQLObjectType({
   fields: {
     projects: {
       type: new GraphQLList(ProjectType),
-      resolve(parent, args) {
-        return projects;
+      async resolve(parent, args) {
+        return await findProjectService({});
       },
     },
     project: {
       type: ProjectType,
       args: { id: { type: GraphQLID } },
-      resolve(parent, args) {
-        return projects.find(project => project.id === args.id);
+      async resolve(parent, args) {
+        // return projects.find(project => project.id === args.id);
+        return await findOneProjectService({ _id: args.id });
       },
     },
     clients: {
       type: new GraphQLList(ClientType),
-      resolve(parent, args) {
-        return clients;
+      async resolve(parent, args) {
+        return await findClientService({});
       },
     },
     client: {
       type: ClientType,
       args: { id: { type: GraphQLID } },
-      resolve(parent, args) {
-        return clients.find(client => client.id === args.id);
+      async resolve(parent, args) {
+        return await findOneClientService({ _id: args.id });
       },
     },
   },

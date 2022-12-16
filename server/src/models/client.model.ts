@@ -20,7 +20,7 @@ export interface ClientDocument extends IClientInput, mongoose.Document {
   updatedAt: Date;
 }
 
-const productSchema = new mongoose.Schema(
+const clientSchema = new mongoose.Schema(
   {
     clientId: {
       type: String,
@@ -52,7 +52,7 @@ const productSchema = new mongoose.Schema(
 
 const ClientModel = mongoose.model<ClientDocument>(
   "Client",
-  productSchema,
+  clientSchema,
   "products"
 );
 
